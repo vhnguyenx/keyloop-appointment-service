@@ -173,27 +173,81 @@ Overrode the standard listing methods in [AppointmentRepository.java](file:///e:
 
 ---
 
-## 10. AI Collaboration Narrative
+## 11. AI Collaboration
 
-### High-Level AI Strategy
-AI acted as an interactive pair-programming assistant during development. The human developer retained full architectural control and mapped out dependencies, while the AI was leveraged for:
-- **Drafting boilerplate**: Outlining JAX-RS/Jakarta validator schemas.
-- **Troubleshooting physical mapping conversion gotchas**: Resolving the SQLServer naming strategies.
-- **Reviewing edge cases**: Spotting potential N+1 mapping issues and identifying the cross-dealership technician leak.
+### 11.1. Overview
+AI tools were used during the development process as a productivity assistant while maintaining engineering ownership of the final solution.
 
-### Verification Process
-All code generated or suggested by AI was strictly verified before integration:
-- Checked syntax alignment against Java 21 compiler specifications.
-- Verified physical query generations by reviewing Hibernate logs (`spring.jpa.show-sql=true`).
-- Run the full test suite (`clean test`) to ensure changes preserved 100% test coverage.
+AI was mainly utilized for:
+- Exploring design alternatives
+- Reviewing implementation approaches
+- Generating initial code scaffolding
+- Identifying potential edge cases
+- Improving documentation quality
 
-### Quality Assurance
-- Code changes were reviewed line-by-line using git diffs.
-- Validation checks were verified by sending invalid requests to the mock container and asserting 400 Bad Request responses.
+AI was used to accelerate development and improve solution quality, while all final technical decisions were reviewed and validated by the developer.
+
+### 11.2. AI Usage Examples
+
+#### 11.2.1. System Design Review
+AI was used to support architectural decision-making and evaluate different design approaches.
+
+Main areas of assistance:
+- Choosing the appropriate application architecture
+- Defining responsibilities between Controller, Service, and Repository layers
+- Reviewing entity relationships and data modeling decisions
+- Evaluating API design approaches
+
+The final design decisions were reviewed and adjusted based on:
+- Business requirements
+- Maintainability
+- Simplicity
+- Long-term scalability
+
+#### 11.2.2. Code Assistance
+AI was used to provide implementation guidance and accelerate development.
+
+Examples include:
+- Generating initial Spring Boot project structure
+- Suggesting entity mapping approaches using JPA/Hibernate
+- Reviewing REST API implementation patterns
+- Suggesting validation strategies
+- Identifying potential code improvements
+
+All generated suggestions were manually reviewed before being integrated into the codebase.
+
+#### 11.2.3. Testing and Edge Case Identification
+AI was used to improve testing coverage by identifying scenarios that could potentially be missed.
+
+Examples:
+- Creating appointments with invalid references
+- Duplicate appointment creation scenarios
+- Missing required fields
+- Invalid input validation cases
+- Database constraint violations
+- Unexpected error handling scenarios
+
+These suggestions were evaluated and incorporated into the testing process where appropriate.
+
+### 11.3. Human Validation
+AI-generated suggestions were not applied blindly. Each recommendation was evaluated based on:
+- Requirement correctness
+- Code readability
+- Security considerations
+- Performance impact
+- Long-term maintainability
+
+The developer remained responsible for:
+- Final architecture decisions
+- Implementation choices
+- Code quality
+- Testing strategy
+
+AI was considered a supporting tool to improve productivity and quality, rather than a replacement for engineering judgment.
 
 ---
 
-## 11. Known Limitations
+## 12. Known Limitations
 
 - **Hardcoded Credentials**: Connection properties contain plaintext database passwords.
 - **Customer Vehicle Lookup Verification**: The GET customer vehicle lookup endpoint returns an empty array with 200 OK if the customer ID does not exist, rather than returning a 404 Not Found.
@@ -201,7 +255,7 @@ All code generated or suggested by AI was strictly verified before integration:
 
 ---
 
-## 12. Future Improvements
+## 13. Future Improvements
 
 - **Secure Configuration**: Integrate Spring Cloud Config or external environment variables to secure database credentials.
 - **Observability Stack**: Add Spring Boot Actuator and Micrometer libraries to export application performance metrics to Prometheus and Grafana.
@@ -209,7 +263,7 @@ All code generated or suggested by AI was strictly verified before integration:
 
 ---
 
-## 13. Reviewer Checklist
+## 14. Reviewer Checklist
 
 1. **Verify Prerequisites**: Confirm JDK 21 and SQL Server are available, and a `ServiceAppointmentDB` database is present.
 2. **Review Configuration**: Inspect [application.properties](file:///e:/unified-service-scheduler/src/main/resources/application.properties) to ensure correct credentials.

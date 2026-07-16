@@ -101,13 +101,13 @@ To build the project and package it into a JAR file, run the following command f
 ## 6. Running the Application
 
 ### 1. Database Schema
-Create the database schema by executing the definitions located in [schema.sql](file:///e:/unified-service-scheduler/src/main/resources/schema.sql). This is required since DDL auto-generation is disabled:
+Create the database schema by executing the definitions located in the **`src/main/resources/schema.sql`** file ([schema.sql](file:///e:/unified-service-scheduler/src/main/resources/schema.sql)). This is required since DDL auto-generation is disabled:
 ```properties
 spring.jpa.hibernate.ddl-auto=none
 ```
 
 ### 2. Seed Data
-After creating the schema, insert the reference and master data records by executing the queries located in [seed-data.sql](file:///e:/unified-service-scheduler/src/main/resources/seed-data.sql).
+After creating the schema, insert the reference and master data records by executing the queries located in the **`src/main/resources/seed-data.sql`** file ([seed-data.sql](file:///e:/unified-service-scheduler/src/main/resources/seed-data.sql)).
 
 ### 3. Startup Command
 Start the application using the Maven wrapper:
@@ -267,7 +267,7 @@ AI was considered a supporting tool to improve productivity and quality, rather 
 
 1. **Verify Prerequisites**: Confirm JDK 21 and SQL Server are available, and a `ServiceAppointmentDB` database is present.
 2. **Review Configuration**: Inspect [application.properties](file:///e:/unified-service-scheduler/src/main/resources/application.properties) to ensure correct credentials.
-3. **Execute SQL Seeds**: Apply database schema script [schema.sql](file:///e:/unified-service-scheduler/src/main/resources/schema.sql) followed by references in [seed-data.sql](file:///e:/unified-service-scheduler/src/main/resources/seed-data.sql).
+3. **Execute SQL Seeds**: Apply the database schema script **`src/main/resources/schema.sql`** ([schema.sql](file:///e:/unified-service-scheduler/src/main/resources/schema.sql)) followed by reference seeds in **`src/main/resources/seed-data.sql`** ([seed-data.sql](file:///e:/unified-service-scheduler/src/main/resources/seed-data.sql)).
 4. **Compile & Run Tests**: Execute `.\mvnw.cmd clean test` to check build stability and test coverage.
 5. **Start Application**: Run `.\mvnw.cmd spring-boot:run`.
 6. **Access Documentation**: Visit `http://localhost:8080/swagger-ui.html` to review endpoints.
